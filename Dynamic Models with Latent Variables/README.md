@@ -1,38 +1,45 @@
-# Synthesis: Deep Machine Learning Theory Project
+# Synthesis of the Report: *Dynamic Models with Latent Variables*
 
-## Title
-**Learning Lenses for Inverse Graphics: A Critical Review**
+## Objective
+This report analyzes the paper "Stationarity and Ergodicity of Markov Switching Positive Conditional Mean Models" (Aknouche & Francq, 2022), focusing on the theoretical properties and numerical validation of MS-PCM models for non-negative time series.
 
-## Overview
+## Theoretical Contributions
 
-This project presents a structured review of the paper *“Learning Lenses for Inverse Graphics”* by Kulkarni et al., which proposes a novel deep generative model for vision tasks based on **analysis-by-synthesis**. The goal of the original paper is to build a model that can infer interpretable latent variables (such as pose, lighting, or shape) from images, and use them to reconstruct the observed data. This work lies at the intersection of **computer vision**, **probabilistic modeling**, and **deep generative learning**.
-
-## Objectives
-
-The key objective is to emulate the **inverse graphics pipeline**: given an image, the model should infer the underlying parameters that describe how the image was generated. The authors design a **compositional generative model** with interpretable latent codes and train it via **variational inference** combined with deep neural networks.
-
-## Key Contributions
-
-- Introduction of an **encoder-decoder architecture** with convolutional neural networks for the image encoder and a compositional decoder that mirrors graphics engines.
-- Use of a **variational autoencoder (VAE)** framework to perform inference and learning, extended to support structured latent variables.
-- Demonstration of the model’s performance on **face images** and **3D chair renderings**, showing that the learned representations are disentangled and interpretable.
-- Visualization of latent space traversals to validate semantic alignment of latent dimensions (e.g., changing azimuth or elevation corresponds to smooth changes in the output).
+- The paper studies Markov Switching Positive Conditional Mean (MS-PCM) models, generalizing ACD, INGARCH, and Beta models through regime-switching mechanisms.
+- It establishes conditions for:
+  - Stationarity and ergodicity via spectral radius tests on transition-dependent matrices.
+  - Existence of finite moments, especially under past-regime dependent switching.
+- It distinguishes three formulations:
+  - Past-regime dependent switching
+  - Present-regime dependent switching
+  - Present-regime mean-dependent switching
+- All results extend to non-linear dynamics under Lipschitz assumptions.
 
 ## Critical Analysis
 
-The students appreciate the **originality** of the approach in combining deep learning with probabilistic graphics models. They emphasize the modular structure of the generative model as a key advantage for interpretability and generalization.
+**Strengths:**
+- Strong mathematical rigor and integration of spectral methods.
+- Broad applicability to positive-valued time series.
 
-However, they also highlight several **limitations**:
-- The model assumes strong prior knowledge of rendering parameters and relies on synthetic datasets, which limits generalization to real-world images.
-- The inference is only approximate and depends on the quality of the variational posterior, which might be too simple to capture the true posterior.
-- The training process is computationally intensive and highly sensitive to network architecture and optimization.
+**Limitations:**
+- No empirical dataset used.
+- Estimation procedures only briefly mentioned.
+- Some assumptions not fully detailed (e.g., stochastic ordering).
 
-## Observations
+## Numerical Validation
 
-- The model successfully disentangles generative factors such as pose, lighting, and shape.
-- It provides a meaningful test case for bridging **graphics and vision** through learned representations.
-- While not directly scalable to high-resolution or natural images, the approach opens up research directions in **interpretable and compositional generative modeling**.
+Simulations confirm the theoretical results:
+
+- **Poisson MS-INGARCH**:
+  - Empirical mean ≈ 6.13, variance ≈ 8.13.
+  - Matches theoretical expectations.
+
+- **Negative Binomial MS-INGARCH**:
+  - Empirical mean ≈ 6.14, variance ≈ 12.25.
+  - Captures overdispersion well.
+
+These simulations validate stationarity, ergodicity, and the model’s flexibility.
 
 ## Conclusion
 
-This review reflects a strong understanding of the theoretical and architectural choices made in the paper. The students underline the model's **contribution to interpretable deep learning** and its role in advancing **inverse graphics** through deep generative models. Despite its reliance on synthetic datasets, the paper is considered a **pioneering effort** in combining structured latent spaces with deep inference frameworks.
+The report confirms the paper’s theoretical soundness and its relevance for modeling regime-switching in non-negative time series. It sets a foundation for future work on estimation techniques and extensions to higher-order or multivariate settings.
