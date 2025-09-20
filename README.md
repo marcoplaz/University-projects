@@ -39,4 +39,4 @@ Feel free to explore the projects, and don’t hesitate to reach out if you have
 
 ## Contact
 
-For questions, collaborations, or follow-ups, please contact **Luca Barriviera** at *[your.email@domain.com](mailto:your.email@domain.com)* (replace with your preferred address).
+For questions, collaborations, or follow-ups, please contact **Marco Plazzogna** at *plazzognamarco@gmail.com*.
